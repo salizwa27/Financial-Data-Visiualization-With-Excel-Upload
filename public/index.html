@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Financial Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center p-6">
+
+  <!-- Header -->
+  <header class="w-full max-w-4xl mb-6">
+    <h1 class="text-3xl font-bold text-gray-800 text-center">📊 Financial Dashboard</h1>
+  </header>
+
+  <!-- Upload Section -->
+  <section class="w-full max-w-4xl bg-white shadow-lg rounded-2xl p-6 mb-6">
+    <h2 class="text-xl font-semibold mb-4 text-gray-700">Upload Excel File</h2>
+    <div class="flex flex-col sm:flex-row items-center gap-4">
+      <input type="file" id="fileInput" class="border p-2 rounded w-full sm:w-auto" />
+      <button onclick="uploadFile()" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-2 rounded shadow">
+        Upload
+      </button>
+    </div>
+  </section>
+
+  <!-- Data Display -->
+  <section class="w-full max-w-4xl bg-white shadow-lg rounded-2xl p-6">
+    <h2 id="userName" class="text-xl font-bold text-gray-800"></h2>
+    <h3 id="year" class="text-md text-gray-500 mb-4"></h3>
+
+    <!-- Table -->
+    <div class="overflow-x-auto mb-6">
+      <table class="min-w-full border rounded-lg">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="py-2 px-4 text-left">Month</th>
+            <th class="py-2 px-4 text-left">Amount</th>
+          </tr>
+        </thead>
+        <tbody id="dataTable" class="divide-y divide-gray-100"></tbody>
+      </table>
+    </div>
+
+    <!-- Chart -->
+    <div>
+      <canvas id="barChart" height="120"></canvas>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
